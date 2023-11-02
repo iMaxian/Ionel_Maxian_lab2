@@ -17,5 +17,9 @@ namespace Ionel_Maxian_lab2.Data
         public DbSet<Ionel_Maxian_lab2.Models.Book> Book { get; set; } = default!;
 
         public DbSet<Ionel_Maxian_lab2.Models.Publisher>? Publisher { get; set; }
+
+        public DbSet<Ionel_Maxian_lab2.Models.Author>? Author { get; set; }
+
+        public DbSet<Ionel_Maxian_lab2.Models.Category>? Category { get; set; }
     }
 }

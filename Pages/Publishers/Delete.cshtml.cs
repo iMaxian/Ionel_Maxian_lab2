@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Ionel_Maxian_lab2.Data;
 using Ionel_Maxian_lab2.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Ionel_Maxian_lab2.Pages.Books
+namespace Ionel_Maxian_lab2.Pages.Publishers
 {
     public class DeleteModel : PageModel
     {
@@ -21,40 +20,40 @@ namespace Ionel_Maxian_lab2.Pages.Books
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+      public Publisher Publisher { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Publisher == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            var publisher = await _context.Publisher.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (book == null)
+            if (publisher == null)
             {
                 return NotFound();
             }
-            else
+            else 
             {
-                Book = book;
+                Publisher = publisher;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Book == null)
+            if (id == null || _context.Publisher == null)
             {
                 return NotFound();
             }
-            var book = await _context.Book.FindAsync(id);
+            var publisher = await _context.Publisher.FindAsync(id);
 
-            if (book != null)
+            if (publisher != null)
             {
-                Book = book;
-                _context.Book.Remove(Book);
+                Publisher = publisher;
+                _context.Publisher.Remove(Publisher);
                 await _context.SaveChangesAsync();
             }
 

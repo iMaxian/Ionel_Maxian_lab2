@@ -4,6 +4,7 @@ using Ionel_Maxian_lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ionel_Maxian_lab2.Migrations
 {
     [DbContext(typeof(Ionel_Maxian_lab2Context))]
-    partial class Ionel_Maxian_lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231024145432_AuthorChanges")]
+    partial class AuthorChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Author", (string)null);
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Book", b =>
@@ -73,47 +75,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasIndex("PublisherID");
 
-                    b.ToTable("Book", (string)null);
-                });
-
-            modelBuilder.Entity("Ionel_Maxian_lab2.Models.BookCategory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<int>("BookID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("BookCategory", (string)null);
-                });
-
-            modelBuilder.Entity("Ionel_Maxian_lab2.Models.Category", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Publisher", b =>
@@ -130,7 +92,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Publisher", (string)null);
+                    b.ToTable("Publisher");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Book", b =>
@@ -148,38 +110,9 @@ namespace Ionel_Maxian_lab2.Migrations
                     b.Navigation("Publisher");
                 });
 
-            modelBuilder.Entity("Ionel_Maxian_lab2.Models.BookCategory", b =>
-                {
-                    b.HasOne("Ionel_Maxian_lab2.Models.Book", "Book")
-                        .WithMany("BookCategories")
-                        .HasForeignKey("BookID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ionel_Maxian_lab2.Models.Category", "Category")
-                        .WithMany("BookCategories")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Author", b =>
                 {
                     b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("Ionel_Maxian_lab2.Models.Book", b =>
-                {
-                    b.Navigation("BookCategories");
-                });
-
-            modelBuilder.Entity("Ionel_Maxian_lab2.Models.Category", b =>
-                {
-                    b.Navigation("BookCategories");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Publisher", b =>

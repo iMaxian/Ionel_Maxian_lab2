@@ -4,6 +4,7 @@ using Ionel_Maxian_lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ionel_Maxian_lab2.Migrations
 {
     [DbContext(typeof(Ionel_Maxian_lab2Context))]
-    partial class Ionel_Maxian_lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231031142319_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Author", (string)null);
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Book", b =>
@@ -73,7 +75,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasIndex("PublisherID");
 
-                    b.ToTable("Book", (string)null);
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.BookCategory", b =>
@@ -96,7 +98,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("BookCategory", (string)null);
+                    b.ToTable("BookCategory");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Category", b =>
@@ -113,7 +115,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Publisher", b =>
@@ -130,7 +132,7 @@ namespace Ionel_Maxian_lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Publisher", (string)null);
+                    b.ToTable("Publisher");
                 });
 
             modelBuilder.Entity("Ionel_Maxian_lab2.Models.Book", b =>
