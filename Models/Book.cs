@@ -10,7 +10,7 @@ namespace Ionel_Maxian_lab2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         public int? AuthorID { get; set; }
         public Author? Author { get; set; } // nav property for author
@@ -20,7 +20,6 @@ namespace Ionel_Maxian_lab2.Models
 
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
-
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
 
