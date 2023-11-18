@@ -3,11 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Ionel_Maxian_lab2.Data;
 using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
-/*
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
-}); */
+}); 
 
 // Add services to the container.
 builder.Services.AddRazorPages(options =>

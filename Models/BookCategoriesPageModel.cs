@@ -33,7 +33,10 @@ namespace Ionel_Maxian_lab2.Models
                 { 
                     if (!bookCategories.Contains(cat.ID)) 
                     { 
-                        bookToUpdate.BookCategories.Add(new BookCategory { BookID = bookToUpdate.ID, CategoryID = cat.ID }); 
+                        bookToUpdate.BookCategories.Add(new BookCategory 
+                        { 
+                            BookID = bookToUpdate.ID, CategoryID = cat.ID 
+                        } ); 
                     } 
                 } 
                 else 

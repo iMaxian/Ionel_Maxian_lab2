@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Ionel_Maxian_lab2.Data;
 using Ionel_Maxian_lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ionel_Maxian_lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : BookCategoriesPageModel
     {
         private readonly Ionel_Maxian_lab2.Data.Ionel_Maxian_lab2Context _context;

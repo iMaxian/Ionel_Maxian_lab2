@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Ionel_Maxian_lab2.Data;
 using Ionel_Maxian_lab2.Models;
 using NuGet.Packaging.Signing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ionel_Maxian_lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Ionel_Maxian_lab2.Data.Ionel_Maxian_lab2Context _context;
