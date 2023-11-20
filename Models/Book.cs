@@ -7,7 +7,7 @@ namespace Ionel_Maxian_lab2.Models
 {
     public class Book
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Display(Name = "Book Title")]
         [Required]
